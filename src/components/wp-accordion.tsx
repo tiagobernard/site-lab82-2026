@@ -16,12 +16,12 @@ const items = [
   {
     title: "Multiplicidade de funcionalidades",
     content:
-      "Mais de 60.000 plugins disponíveis no repositório oficial + marketplace premium. E-commerce, LMS, CRM, formulários avançados, integração com sistemas externos — tudo sem desenvolvimento customizado do zero.",
+      "Mais de 60.000 plugins disponíveis no repositório oficial + marketplace premium. E-commerce, LMS, CRM, formulários avançados, integração com sistemas externos, tudo sem desenvolvimento customizado do zero.",
   },
   {
     title: "Layout 100% responsivo",
     content:
-      "Desenvolvemos temas customizados ou utilizamos os melhores do mercado, sempre com abordagem mobile-first. Seu site perfeito em qualquer dispositivo — smartphone, tablet ou desktop.",
+      "Desenvolvemos temas customizados ou utilizamos os melhores do mercado, sempre com abordagem mobile-first. Seu site perfeito em qualquer dispositivo: smartphone, tablet ou desktop.",
   },
   {
     title: "Interface simples e intuitiva",
@@ -88,19 +88,27 @@ export default function WpAccordion() {
               +
             </span>
           </button>
-          {open === i && (
-            <div
-              style={{
-                padding: "0 22px 20px",
-                fontFamily: "var(--font-sans)",
-                fontSize: 14,
-                color: "#8FA0BA",
-                lineHeight: 1.7,
-              }}
-            >
-              {item.content}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateRows: open === i ? "1fr" : "0fr",
+              transition: "grid-template-rows 0.3s ease",
+            }}
+          >
+            <div style={{ overflow: "hidden" }}>
+              <div
+                style={{
+                  padding: "0 22px 20px",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: 14,
+                  color: "#8FA0BA",
+                  lineHeight: 1.7,
+                }}
+              >
+                {item.content}
+              </div>
             </div>
-          )}
+          </div>
         </div>
       ))}
     </div>

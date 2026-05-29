@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import WhatsappIcon from "@/components/whatsapp-icon";
 import { AlertTriangle, Gauge, AlertCircle, TrendingDown, Check } from "lucide-react";
+import Reveal from "@/components/reveal";
+
+export const metadata: Metadata = {
+  title: "Manutenção WordPress Profissional",
+  description: "Manutenção preventiva e corretiva de WordPress: atualizações, backups diários, monitoramento 24h e suporte humano especializado. Seu site sempre seguro e atualizado.",
+  alternates: { canonical: "https://lab82.dev/manutencao" },
+  openGraph: {
+    title: "Manutenção WordPress Profissional | Lab82",
+    description: "Atualizações, backups diários e monitoramento 24h. Seu WordPress sempre seguro.",
+    url: "https://lab82.dev/manutencao",
+  },
+};
 
 const glass: React.CSSProperties = {
   background: "linear-gradient(180deg, rgba(22, 45, 80, 0.5), rgba(17, 34, 64, 0.6))",
@@ -118,6 +131,7 @@ export default function ManutencaoPage() {
         </div>
 
         {/* Page head */}
+        <Reveal>
         <div style={{ marginBottom: 60 }}>
           <div
             style={{
@@ -177,11 +191,14 @@ export default function ManutencaoPage() {
               maxWidth: 580,
             }}
           >
-            Mantenha seu WordPress sempre atualizado, seguro e funcionando perfeitamente — sem preocupações.
+            Mantenha seu WordPress sempre atualizado, seguro e funcionando perfeitamente, sem preocupações.
           </p>
         </div>
 
+        </Reveal>
+
         {/* Risk section 2-col */}
+        <Reveal>
         <div
           style={{
             display: "grid",
@@ -221,7 +238,7 @@ export default function ManutencaoPage() {
 
             {[
               { Icon: AlertTriangle, title: "Vulnerabilidades", desc: "90% dos sites WordPress hackeados tinham plugins desatualizados. Cada versão atrasada é uma brecha." },
-              { Icon: Gauge, title: "Performance degradada", desc: "Plugins conflitantes e banco de dados inchado deixam seu site lento — e o Google penaliza isso." },
+              { Icon: Gauge, title: "Performance degradada", desc: "Plugins conflitantes e banco de dados sobrecarregado deixam seu site lento, e o Google penaliza isso." },
               { Icon: AlertCircle, title: "Incompatibilidades", desc: "Atualizações manuais sem testes podem quebrar seu site. Fazemos em ambiente de staging antes." },
               { Icon: TrendingDown, title: "Queda no ranking", desc: "Site fora do ar ou lento reduz drasticamente seu posicionamento orgânico." },
             ].map((r) => (
@@ -272,7 +289,7 @@ export default function ManutencaoPage() {
                 letterSpacing: "0.06em",
               }}
             >
-              // health score — lab82 managed
+              // health score: lab82 managed
             </div>
 
             {/* SVG gauge */}
@@ -332,7 +349,7 @@ export default function ManutencaoPage() {
 
             {/* Health items */}
             {[
-              { label: "WordPress Core", value: "7.0.0 — atualizado", ok: true },
+              { label: "WordPress Core", value: "7.0.0, atualizado", ok: true },
               { label: "Plugins", value: "todos atualizados", ok: true },
               { label: "Uptime", value: "99.98%", ok: true },
             ].map((item) => (
@@ -372,7 +389,10 @@ export default function ManutencaoPage() {
           </div>
         </div>
 
+        </Reveal>
+
         {/* Plans grid */}
+        <Reveal>
         <div
           style={{
             fontFamily: "var(--font-mono)",
@@ -401,6 +421,8 @@ export default function ManutencaoPage() {
                 padding: 28,
                 position: "relative",
                 overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
                 ...(plan.featured
                   ? {
                       background:
@@ -509,6 +531,7 @@ export default function ManutencaoPage() {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: 8,
+                  marginTop: "auto",
                   background: plan.featured
                     ? "linear-gradient(135deg, #128C7E, #075E54)"
                     : "rgba(77, 157, 224, 0.1)",
@@ -544,7 +567,10 @@ export default function ManutencaoPage() {
           * Conteúdo ilimitado refere-se a textos e imagens fornecidos pelo cliente. Não inclui desenvolvimento de novas funcionalidades.
         </p>
 
+        </Reveal>
+
         {/* CTA banner */}
+        <Reveal>
         <div
           style={{
             ...glass,
@@ -578,7 +604,7 @@ export default function ManutencaoPage() {
                 margin: 0,
               }}
             >
-              Analisamos seu site e identificamos riscos e oportunidades — sem custo, sem compromisso.
+              Analisamos seu site e identificamos riscos e oportunidades, sem custo e sem compromisso.
             </p>
           </div>
           <a
@@ -605,6 +631,7 @@ export default function ManutencaoPage() {
             auditoria gratuita no WhatsApp
           </a>
         </div>
+        </Reveal>
       </div>
     </main>
   );

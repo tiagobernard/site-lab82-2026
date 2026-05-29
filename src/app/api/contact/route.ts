@@ -4,7 +4,10 @@ import nodemailer from "nodemailer";
 
 const schema = z.object({
   nome: z.string().min(2),
-  whatsapp: z.string().min(10),
+  whatsapp: z.string().refine(
+    (v) => { const d = v.replace(/\D/g, ""); return d.length >= 10 && d.length <= 11; },
+    "Whatsapp inválido"
+  ),
   email: z.string().email(),
   assunto: z.string().min(1),
   mensagem: z.string().min(10),
@@ -69,7 +72,7 @@ export async function POST(request: NextRequest) {
       from: process.env.SMTP_FROM,
       to: process.env.SMTP_TO,
       replyTo: email,
-      subject: `[lab82] ${assunto} — ${nome}`,
+      subject: `[lab82] ${assunto}: ${nome}`,
       html,
     });
 

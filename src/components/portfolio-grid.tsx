@@ -69,10 +69,12 @@ function BentoCard({
   item,
   slotIndex,
   globalIndex,
+  isInitial,
 }: {
   item: PortfolioItem;
   slotIndex: number;
   globalIndex: number;
+  isInitial: boolean;
 }) {
   const slot = BENTO_SLOTS[slotIndex];
   const overlay = BG_CYCLE[globalIndex % BG_CYCLE.length];
@@ -82,7 +84,7 @@ function BentoCard({
 
   return (
     <div
-      className="bento-item"
+      className={`bento-item${isInitial ? " bento-card-enter" : ""}`}
       style={{
         gridColumn: slot.col,
         gridRow: slot.row,
@@ -91,6 +93,7 @@ function BentoCard({
         position: "relative",
         border: "1px solid rgba(77, 157, 224, 0.15)",
         cursor: "default",
+        animationDelay: isInitial ? `${slotIndex * 55}ms` : undefined,
       }}
     >
       {/* Imagem real do projeto */}
@@ -278,6 +281,7 @@ export default function PortfolioGrid({ projects }: { projects: PortfolioItem[] 
               item={item}
               slotIndex={slotIndex}
               globalIndex={groupIndex * BLOCK + slotIndex}
+              isInitial={groupIndex === 0}
             />
           ))}
         </div>

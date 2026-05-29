@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import HospedagemPlan from "@/components/hospedagem-plan";
 import { Zap, ShieldCheck, MessageCircle } from "lucide-react";
+import Reveal from "@/components/reveal";
+
+export const metadata: Metadata = {
+  title: "Hospedagem WordPress de Alta Performance",
+  description: "Hospedagem com LiteSpeed, NVMe SSD, CDN global, SSL incluso e backups diários automáticos. Uptime de 99,9% e suporte humano especializado.",
+  alternates: { canonical: "https://lab82.dev/hospedagem" },
+  openGraph: {
+    title: "Hospedagem WordPress de Alta Performance | Lab82",
+    description: "LiteSpeed, NVMe SSD, CDN global e uptime de 99,9%. A infraestrutura que seu site merece.",
+    url: "https://lab82.dev/hospedagem",
+  },
+};
 
 const glass: React.CSSProperties = {
   background: "linear-gradient(180deg, rgba(22, 45, 80, 0.5), rgba(17, 34, 64, 0.6))",
@@ -29,7 +42,7 @@ const featureCards = [
   {
     Icon: ShieldCheck,
     title: "Segurança em camadas",
-    desc: "Firewall, WAF, proteção DDoS, SpamExperts e backups diários automáticos. Dormia tranquilo.",
+    desc: "Firewall, WAF, proteção DDoS, SpamExperts e backups diários automáticos. Durma tranquilo.",
   },
   {
     Icon: MessageCircle,
@@ -60,6 +73,7 @@ export default function HospedagemPage() {
         </div>
 
         {/* Page head */}
+        <Reveal>
         <div style={{ marginBottom: 60 }}>
           <div
             style={{
@@ -123,7 +137,10 @@ export default function HospedagemPage() {
           </p>
         </div>
 
+        </Reveal>
+
         {/* Intro 2-col */}
+        <Reveal>
         <div
           style={{
             display: "grid",
@@ -169,7 +186,7 @@ export default function HospedagemPage() {
                 marginBottom: 16,
               }}
             >
-              Utilizamos <strong style={{ color: "#CDD6E4" }}>LiteSpeed Web Server</strong> — até 5x mais rápido que Apache para WordPress — combinado com armazenamento NVMe SSD, que entrega velocidades de leitura 7× superiores ao HDD tradicional.
+              Utilizamos <strong style={{ color: "#CDD6E4" }}>LiteSpeed Web Server</strong>, até 5x mais rápido que Apache para WordPress, combinado com armazenamento NVMe SSD, que entrega velocidades de leitura 7x superiores ao HDD tradicional.
             </p>
             <p
               style={{
@@ -234,7 +251,10 @@ export default function HospedagemPage() {
           </div>
         </div>
 
+        </Reveal>
+
         {/* Billing toggle + Plan card */}
+        <Reveal>
         <div style={{ marginBottom: 64 }}>
           <div
             style={{
@@ -251,7 +271,10 @@ export default function HospedagemPage() {
           <HospedagemPlan />
         </div>
 
+        </Reveal>
+
         {/* Feature cards */}
+        <Reveal>
         <div
           style={{
             display: "grid",
@@ -293,6 +316,7 @@ export default function HospedagemPage() {
             </div>
           ))}
         </div>
+        </Reveal>
       </div>
     </main>
   );

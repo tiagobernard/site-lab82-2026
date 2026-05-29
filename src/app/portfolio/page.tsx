@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PortfolioGrid, { type PortfolioItem } from "@/components/portfolio-grid";
+import Reveal from "@/components/reveal";
+
+export const metadata: Metadata = {
+  title: "Portfólio de Projetos",
+  description: "Confira os projetos desenvolvidos pela Lab82: sites WordPress, landing pages, e-commerces e aplicações web de alto impacto. Mais de 300 projetos entregues.",
+  alternates: { canonical: "https://lab82.dev/portfolio" },
+  openGraph: {
+    title: "Portfólio de Projetos | Lab82",
+    description: "Mais de 300 projetos: WordPress, landing pages, e-commerces e aplicações web.",
+    url: "https://lab82.dev/portfolio",
+  },
+};
 
 const glass: React.CSSProperties = {
   background: "linear-gradient(180deg, rgba(22,45,80,0.5), rgba(17,34,64,0.6))",
@@ -54,6 +67,7 @@ export default async function PortfolioPage() {
         </div>
 
         {/* Page head */}
+        <Reveal>
         <div style={{ marginBottom: 48 }}>
           <div
             style={{
@@ -113,12 +127,15 @@ export default async function PortfolioPage() {
               maxWidth: 560,
             }}
           >
-            Uma seleção dos projetos que definem a qualidade Lab82 — cada um
+            Uma seleção dos projetos que definem a qualidade Lab82, cada um
             com identidade única, construído para durar.
           </p>
         </div>
 
+        </Reveal>
+
         {/* Stats */}
+        <Reveal delay={100}>
         <div className="portfolio-stats">
           {stats.map((s) => (
             <div
@@ -142,6 +159,8 @@ export default async function PortfolioPage() {
             </div>
           ))}
         </div>
+
+        </Reveal>
 
         {/* Grid (client component — pagination state) */}
         <PortfolioGrid projects={projects} />

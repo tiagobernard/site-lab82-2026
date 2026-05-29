@@ -9,7 +9,20 @@ import {
 } from "lucide-react";
 import WordpressIcon from "@/components/wordpress-icon";
 import TechCarousel from "@/components/tech-carousel";
+import type { Metadata } from "next";
 import ContactForm from "@/components/contact-form";
+import Reveal from "@/components/reveal";
+
+export const metadata: Metadata = {
+  title: "Agência Digital: Sites WordPress, Hospedagem e Manutenção",
+  description: "A Lab82 cria sites profissionais de alto impacto com WordPress, hospedagem de alta performance e manutenção especializada. Mais de 300 projetos entregues em 20 anos de mercado.",
+  alternates: { canonical: "https://lab82.dev" },
+  openGraph: {
+    title: "Lab82: Agência Digital",
+    description: "Sites WordPress, hospedagem de alta performance e manutenção especializada.",
+    url: "https://lab82.dev",
+  },
+};
 
 const WA_LINK = "https://wa.me/5531998407238";
 
@@ -94,7 +107,6 @@ export default async function Home() {
           overflow: "hidden",
           display: "flex",
           alignItems: "center",
-          paddingTop: 60,
         }}
       >
         {/* Neural canvas background */}
@@ -127,7 +139,7 @@ export default async function Home() {
           }}
         >
           {/* Left */}
-          <div>
+          <div className="hero-left">
             {/* Eyebrow */}
             <div
               style={{
@@ -191,7 +203,7 @@ export default async function Home() {
                 margin: "0 0 40px",
               }}
             >
-              Do branding ao código — desenvolvemos presença digital de alto impacto para empresas e profissionais que não aceitam o medíocre.
+              Do branding ao código, desenvolvemos presença digital de alto impacto para empresas e profissionais que não aceitam o medíocre.
             </p>
 
             {/* CTAs */}
@@ -242,7 +254,7 @@ export default async function Home() {
           </div>
 
           {/* Right — stat cards */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <div className="hero-right" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {[
               { value: "300+", label: "projetos entregues", suffix: "" },
               { value: "150+", label: "clientes satisfeitos", suffix: "" },
@@ -278,6 +290,7 @@ export default async function Home() {
 
       {/* ══ VALUES // 01 ══ */}
       <section style={{ maxWidth: 1320, margin: "0 auto", padding: "80px 40px" }}>
+        <Reveal>
         {/* Code label */}
         <div
           style={{
@@ -288,7 +301,7 @@ export default async function Home() {
             marginBottom: 40,
           }}
         >
-          // 01 — nossos valores
+          // 01: nossos valores
         </div>
 
         <div
@@ -356,10 +369,12 @@ export default async function Home() {
             </div>
           ))}
         </div>
+        </Reveal>
       </section>
 
       {/* ══ SOLUTIONS BENTO // 02 ══ */}
       <section style={{ maxWidth: 1320, margin: "0 auto", padding: "0 40px 80px" }}>
+        <Reveal>
         <div
           style={{
             fontFamily: "var(--font-mono)",
@@ -369,7 +384,7 @@ export default async function Home() {
             marginBottom: 40,
           }}
         >
-          // 02 — soluções
+          // 02: soluções
         </div>
 
         <div
@@ -458,10 +473,12 @@ export default async function Home() {
             </a>
           ))}
         </div>
+        </Reveal>
       </section>
 
       {/* ══ STATS // 03 ══ */}
       <section style={{ maxWidth: 1320, margin: "0 auto", padding: "0 40px 80px" }}>
+        <Reveal>
         <div
           style={{
             fontFamily: "var(--font-mono)",
@@ -471,7 +488,7 @@ export default async function Home() {
             marginBottom: 40,
           }}
         >
-          // 03 — métricas vivas
+          // 03: métricas vivas
         </div>
 
         <div
@@ -520,10 +537,12 @@ export default async function Home() {
             </div>
           ))}
         </div>
+        </Reveal>
       </section>
 
       {/* ══ TECHNOLOGIES // 04 ══ */}
       <section style={{ maxWidth: 1320, margin: "0 auto", padding: "0 40px 80px" }}>
+        <Reveal>
         <div
           style={{
             fontFamily: "var(--font-mono)",
@@ -533,13 +552,15 @@ export default async function Home() {
             marginBottom: 40,
           }}
         >
-          // 04 — tecnologias que usamos
+          // 04: tecnologias que usamos
         </div>
         <TechCarousel />
+        </Reveal>
       </section>
 
       {/* ══ PROJECTS PREVIEW // 05 ══ */}
       <section style={{ maxWidth: 1320, margin: "0 auto", padding: "0 40px 80px" }}>
+        <Reveal>
         <div
           style={{
             fontFamily: "var(--font-mono)",
@@ -549,7 +570,7 @@ export default async function Home() {
             marginBottom: 40,
           }}
         >
-          // 05 — últimos projetos
+          // 05: últimos projetos
         </div>
 
         <div
@@ -706,6 +727,7 @@ export default async function Home() {
             ver portfólio completo <ArrowIcon />
           </Link>
         </div>
+        </Reveal>
       </section>
 
       {/* ══ CONTACT // 05 ══ */}
@@ -717,6 +739,7 @@ export default async function Home() {
           padding: "0 40px 100px",
         }}
       >
+        <Reveal>
         <div
           style={{
             fontFamily: "var(--font-mono)",
@@ -726,7 +749,7 @@ export default async function Home() {
             marginBottom: 40,
           }}
         >
-          // 06 — contato
+          // 06: contato
         </div>
 
         <div
@@ -913,6 +936,7 @@ export default async function Home() {
           {/* Right — form */}
           <ContactForm />
         </div>
+        </Reveal>
       </section>
     </main>
   );

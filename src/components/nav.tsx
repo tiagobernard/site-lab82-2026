@@ -43,6 +43,7 @@ export default function Nav() {
         {/* Logo */}
         <Link
           href="/"
+          className="nav-logo"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: "1.4rem",
@@ -58,7 +59,7 @@ export default function Nav() {
         </Link>
 
         {/* Nav links */}
-        <nav style={{ display: "flex", alignItems: "center", gap: 36 }}>
+        <nav className="nav-links" style={{ display: "flex", alignItems: "center", gap: 36 }}>
           {navRoutes.map((route) => {
             const isActive = pathname === route.href;
             return (
@@ -83,7 +84,7 @@ export default function Nav() {
         </nav>
 
         {/* WA Button */}
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div className="nav-cta" style={{ display: "flex", justifyContent: "flex-end" }}>
           <a
             href={WA_LINK}
             target="_blank"

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, ChevronDown } from "lucide-react";
 import { setField, setTouched, setStatus, resetForm } from "@/store/contactSlice";
 import type { RootState, AppDispatch } from "@/store";
 import type { Fields } from "@/store/contactSlice";
@@ -40,8 +40,10 @@ function isValidField(field: keyof Fields, value: string): boolean {
   switch (field) {
     case "nome":
       return value.trim().length >= 2;
-    case "whatsapp":
-      return value.replace(/\D/g, "").length >= 10;
+    case "whatsapp": {
+      const digits = value.replace(/\D/g, "");
+      return digits.length >= 10 && digits.length <= 11;
+    }
     case "email":
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     case "assunto":
@@ -66,12 +68,13 @@ export default function ContactForm() {
   );
   const [focusedField, setFocusedField] = useState<keyof Fields | null>(null);
 
+  const allValid = (Object.keys(fields) as (keyof Fields)[]).every((f) =>
+    isValidField(f, fields[f])
+  );
+
   function getFieldClass(field: keyof Fields): string {
     if (focusedField !== field) return "";
-    const valid = isValidField(field, fields[field]);
-    if (valid) return "field-valid";
-    if (touched[field]) return "field-invalid";
-    return "";
+    return isValidField(field, fields[field]) ? "field-valid" : "field-invalid";
   }
 
   function showIcon(field: keyof Fields): boolean {
@@ -131,6 +134,8 @@ export default function ContactForm() {
     letterSpacing: "0.06em",
   };
 
+  const required = <span style={{ color: "#4D9DE0", marginLeft: 3 }}>*</span>;
+
   return (
     <div style={{ ...glass, padding: 36 }}>
       <form
@@ -139,7 +144,7 @@ export default function ContactForm() {
       >
         {/* Nome */}
         <div>
-          <label style={labelStyle}>nome</label>
+          <label style={labelStyle}>nome{required}</label>
           <div style={{ position: "relative" }}>
             <input
               type="text"
@@ -166,11 +171,11 @@ export default function ContactForm() {
 
         {/* WhatsApp */}
         <div>
-          <label style={labelStyle}>whatsapp</label>
+          <label style={labelStyle}>whatsapp{required}</label>
           <div style={{ position: "relative" }}>
             <input
               type="tel"
-              placeholder="+55 (31) 9 0000-0000"
+              placeholder="31 99999-9999"
               value={fields.whatsapp}
               className={getFieldClass("whatsapp")}
               style={{ ...inputBase, border: "1px solid rgba(77, 157, 224, 0.2)" }}
@@ -193,7 +198,7 @@ export default function ContactForm() {
 
         {/* E-mail */}
         <div>
-          <label style={labelStyle}>e-mail</label>
+          <label style={labelStyle}>e-mail{required}</label>
           <div style={{ position: "relative" }}>
             <input
               type="email"
@@ -220,7 +225,7 @@ export default function ContactForm() {
 
         {/* Assunto */}
         <div>
-          <label style={labelStyle}>assunto</label>
+          <label style={labelStyle}>assunto{required}</label>
           <div style={{ position: "relative" }}>
             <select
               value={fields.assunto}
@@ -229,6 +234,7 @@ export default function ContactForm() {
                 ...inputBase,
                 border: "1px solid rgba(77, 157, 224, 0.2)",
                 appearance: "none",
+                paddingRight: 36,
               }}
               onChange={(e) => dispatch(setField({ field: "assunto", value: e.target.value }))}
               onFocus={() => setFocusedField("assunto")}
@@ -242,11 +248,16 @@ export default function ContactForm() {
                 <option key={s} value={s} style={{ background: "#112240" }}>{s}</option>
               ))}
             </select>
+            <ChevronDown
+              size={15}
+              color="#4D9DE0"
+              style={{ position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}
+            />
             {showIcon("assunto") && (
               <CircleCheck
                 size={16}
                 color="#B7E4C7"
-                style={{ position: "absolute", right: 28, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}
+                style={{ position: "absolute", right: 32, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}
               />
             )}
           </div>
@@ -254,7 +265,7 @@ export default function ContactForm() {
 
         {/* Mensagem */}
         <div>
-          <label style={labelStyle}>mensagem</label>
+          <label style={labelStyle}>mensagem{required}</label>
           <div style={{ position: "relative" }}>
             <textarea
               rows={5}
@@ -297,22 +308,22 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          disabled={status === "loading"}
+          disabled={!allValid || status === "loading"}
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             gap: 8,
-            background: status === "loading" ? "rgba(77, 157, 224, 0.5)" : "#4D9DE0",
-            color: "#0A1628",
+            background: !allValid || status === "loading" ? "rgba(77, 157, 224, 0.3)" : "#4D9DE0",
+            color: !allValid || status === "loading" ? "rgba(10, 22, 40, 0.5)" : "#0A1628",
             fontFamily: "var(--font-mono)",
             fontSize: 14,
             fontWeight: 700,
             padding: "14px",
             borderRadius: 10,
             border: "none",
-            cursor: status === "loading" ? "not-allowed" : "pointer",
-            transition: "background 0.2s",
+            cursor: !allValid || status === "loading" ? "not-allowed" : "pointer",
+            transition: "background 0.2s, color 0.2s",
             letterSpacing: "0.04em",
           }}
         >

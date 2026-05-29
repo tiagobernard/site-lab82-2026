@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import WhatsappIcon from "@/components/whatsapp-icon";
 import WpAccordion from "@/components/wp-accordion";
+import Reveal from "@/components/reveal";
+
+export const metadata: Metadata = {
+  title: "Sites WordPress Profissionais",
+  description: "Desenvolvimento de sites WordPress com design exclusivo, SEO técnico, painel intuitivo e suporte completo. Do briefing ao lançamento, sem templates genéricos.",
+  alternates: { canonical: "https://lab82.dev/wordpress" },
+  openGraph: {
+    title: "Sites WordPress Profissionais | Lab82",
+    description: "Design exclusivo, SEO técnico e painel intuitivo. Do briefing ao lançamento.",
+    url: "https://lab82.dev/wordpress",
+  },
+};
 
 const glass: React.CSSProperties = {
   background: "linear-gradient(180deg, rgba(22, 45, 80, 0.5), rgba(17, 34, 64, 0.6))",
@@ -48,6 +61,7 @@ export default function WordPressPage() {
         </div>
 
         {/* Page head */}
+        <Reveal>
         <div style={{ marginBottom: 60 }}>
           <div
             style={{
@@ -111,7 +125,10 @@ export default function WordPressPage() {
           </p>
         </div>
 
+        </Reveal>
+
         {/* Stat cards */}
+        <Reveal delay={100}>
         <div
           style={{
             display: "grid",
@@ -171,7 +188,10 @@ export default function WordPressPage() {
           ))}
         </div>
 
+        </Reveal>
+
         {/* Intro 2-col */}
+        <Reveal>
         <div
           style={{
             display: "grid",
@@ -217,7 +237,7 @@ export default function WordPressPage() {
                 marginBottom: 20,
               }}
             >
-              WordPress não é só um blog. É uma plataforma completa capaz de rodar e-commerces de alto volume, portais de notícias, sistemas LMS, landing pages e muito mais — com a escalabilidade que empresas sérias precisam.
+              WordPress não é só um blog. É uma plataforma completa capaz de rodar e-commerces de alto volume, portais de notícias, sistemas LMS, landing pages e muito mais, com a escalabilidade que empresas sérias precisam.
             </p>
             <p
               style={{
@@ -252,7 +272,7 @@ export default function WordPressPage() {
                   fontWeight: 600,
                 }}
               >
-                WordPress — Painel
+                WordPress: Painel
               </span>
               <span
                 style={{
@@ -312,7 +332,10 @@ export default function WordPressPage() {
           </div>
         </div>
 
+        </Reveal>
+
         {/* Advantages accordion */}
+        <Reveal>
         <div style={{ marginBottom: 64 }}>
           <div
             style={{
@@ -328,7 +351,10 @@ export default function WordPressPage() {
           <WpAccordion />
         </div>
 
+        </Reveal>
+
         {/* CTA banner */}
+        <Reveal>
         <div
           style={{
             ...glass,
@@ -389,6 +415,7 @@ export default function WordPressPage() {
             falar no WhatsApp
           </a>
         </div>
+        </Reveal>
       </div>
     </main>
   );

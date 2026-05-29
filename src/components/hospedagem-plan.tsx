@@ -42,6 +42,11 @@ export default function HospedagemPlan() {
   const mensalData = { val: "57,90", per: "/mês", note: "sem fidelidade · cancele quando quiser" };
   const current = billing === "anual" ? anualData : mensalData;
 
+  const contratarHref =
+    billing === "mensal"
+      ? "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=fdd186870da047c982fbaa1767f0d2ce"
+      : "https://mpago.li/1CyBF7H";
+
   return (
     <div>
       {/* Billing toggle */}
@@ -171,7 +176,7 @@ export default function HospedagemPlan() {
             {/* CTAs */}
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               <a
-                href={WA_LINK}
+                href={contratarHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
