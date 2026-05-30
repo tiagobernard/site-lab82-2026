@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import NeuralCanvas from "@/components/neural-canvas";
+import NeuralCanvas from "@/components/neural-canvas-loader";
 import WhatsappIcon from "@/components/whatsapp-icon";
 import {
   Wrench, TrendingUp, Server, Globe, Code2, Paintbrush,
@@ -248,7 +248,6 @@ export default async function Home() {
 
       {/* ══ VALUES // 01 ══ */}
       <section className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-10 py-12 md:py-16 lg:py-20">
-        <Reveal>
         <div
           style={{
             fontFamily: "var(--font-mono)",
@@ -306,7 +305,6 @@ export default async function Home() {
             </div>
           ))}
         </div>
-        </Reveal>
       </section>
 
       {/* ══ SOLUTIONS BENTO // 02 ══ */}
