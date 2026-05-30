@@ -42,7 +42,7 @@ const stats = [
 export default function WordPressPage() {
   return (
     <main>
-      <div style={{ maxWidth: 1320, margin: "0 auto", padding: "60px 40px 100px" }}>
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 inner-page-container">
         {/* Breadcrumb */}
         <div
           style={{
@@ -129,14 +129,7 @@ export default function WordPressPage() {
 
         {/* Stat cards */}
         <Reveal delay={100}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 16,
-            marginBottom: 64,
-          }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
           {stats.map((s) => (
             <div
               key={s.label}
@@ -192,15 +185,7 @@ export default function WordPressPage() {
 
         {/* Intro 2-col */}
         <Reveal>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 48,
-            alignItems: "center",
-            marginBottom: 64,
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
           {/* Left text */}
           <div>
             <div
@@ -358,12 +343,11 @@ export default function WordPressPage() {
         <div
           style={{
             ...glass,
-            padding: "48px 40px",
+            padding: "40px 32px",
             display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 32,
-            flexWrap: "wrap",
+            flexDirection: "column" as const,
+            alignItems: "flex-start",
+            gap: 24,
             background: "linear-gradient(135deg, rgba(77, 157, 224, 0.08), rgba(17, 34, 64, 0.8))",
           }}
         >

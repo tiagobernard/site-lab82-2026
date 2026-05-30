@@ -26,7 +26,6 @@ export const metadata: Metadata = {
 
 const WA_LINK = "https://wa.me/5531998407238";
 
-/* ─── Shared glass card style ─── */
 const glass: React.CSSProperties = {
   background: "linear-gradient(180deg, rgba(22, 45, 80, 0.5), rgba(17, 34, 64, 0.6))",
   border: "1px solid rgba(77, 157, 224, 0.18)",
@@ -35,7 +34,6 @@ const glass: React.CSSProperties = {
   WebkitBackdropFilter: "blur(14px)",
 };
 
-/* ─── Helper: inline arrow icon ─── */
 function ArrowIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -44,28 +42,22 @@ function ArrowIcon() {
   );
 }
 
-/* ─── Bento solution cards data ─── */
 const bentoCards = [
-  // Row 1: WordPress featured (col 1-3), Manutenção (4-5), SEO (6)
-  { id: "wp", title: "WordPress", desc: "Sites profissionais com o CMS mais usado do mundo. Design único, painel fácil.", tag: "CMS", href: "/wordpress", col: "1 / 4", row: "1 / 2", featured: true, Icon: null },
-  { id: "man", title: "Manutenção WP", desc: "Atualizações, backups e monitoramento contínuo.", tag: "SUPORTE", href: "/manutencao", col: "4 / 6", row: "1 / 2", featured: false, Icon: Wrench },
-  { id: "seo", title: "SEO", desc: "Mais visibilidade orgânica.", tag: "MARKETING", href: "#contato", col: "6 / 7", row: "1 / 2", featured: false, Icon: TrendingUp },
-  // Row 2: Aplicações (1-2), Design (3), Hospedagem (4-5), Domínio (6)
-  { id: "app", title: "Aplicações Web", desc: "Sistemas e plataformas sob medida.", tag: "DEV", href: "#contato", col: "1 / 3", row: "2 / 3", featured: false, Icon: Code2 },
-  { id: "des", title: "Design", desc: "UI/UX e identidade visual.", tag: "DESIGN", href: "#contato", col: "3 / 4", row: "2 / 3", featured: false, Icon: Paintbrush },
-  { id: "host", title: "Hospedagem", desc: "LiteSpeed, NVMe SSD, 99.9% uptime.", tag: "INFRA", href: "/hospedagem", col: "4 / 6", row: "2 / 3", featured: false, Icon: Server },
-  { id: "dom", title: "Domínio", desc: "Registro e gestão de domínios.", tag: "INFRA", href: "#contato", col: "6 / 7", row: "2 / 3", featured: false, Icon: Globe },
-  // Row 3: E-commerce (1-2), Landing (3), SpamExperts (4-5), SSL (6)
-  { id: "ecom", title: "E-commerce", desc: "Loja virtual completa e escalável.", tag: "VENDAS", href: "#contato", col: "1 / 3", row: "3 / 4", featured: false, Icon: ShoppingCart },
-  { id: "land", title: "Landing Page", desc: "Páginas de conversão de alto impacto.", tag: "DEV", href: "#contato", col: "3 / 4", row: "3 / 4", featured: false, Icon: Rocket },
-  { id: "spam", title: "SpamExperts", desc: "Proteção de e-mail corporativo.", tag: "EMAIL", href: "#contato", col: "4 / 6", row: "3 / 4", featured: false, Icon: ShieldCheck },
-  { id: "ssl", title: "SSL", desc: "Certificados gratuitos e pagos.", tag: "SEGURANÇA", href: "#contato", col: "6 / 7", row: "3 / 4", featured: false, Icon: Lock },
-  // Row 4: Cloud Backup (1-3), E-mail Pro (4-6) — simétricas
-  { id: "back", title: "Cloud Backup", desc: "Backups diários automatizados na nuvem.", tag: "INFRA", href: "#contato", col: "1 / 4", row: "4 / 5", featured: false, Icon: Cloud },
-  { id: "mail", title: "E-mail Pro", desc: "Contas profissionais com seu domínio.", tag: "EMAIL", href: "#contato", col: "4 / 7", row: "4 / 5", featured: false, Icon: Mail },
+  { id: "wp",   title: "WordPress",       desc: "Sites profissionais com o CMS mais usado do mundo. Design único, painel fácil.", tag: "CMS",       href: "/wordpress", col: "1 / 4", row: "1 / 2", featured: true,  Icon: null },
+  { id: "man",  title: "Manutenção WP",   desc: "Atualizações, backups e monitoramento contínuo.",                                tag: "SUPORTE",   href: "/manutencao",col: "4 / 6", row: "1 / 2", featured: false, Icon: Wrench },
+  { id: "seo",  title: "SEO",             desc: "Mais visibilidade orgânica.",                                                    tag: "MARKETING", href: "#contato",   col: "6 / 7", row: "1 / 2", featured: false, Icon: TrendingUp },
+  { id: "app",  title: "Aplicações Web",  desc: "Sistemas e plataformas sob medida.",                                            tag: "DEV",       href: "#contato",   col: "1 / 3", row: "2 / 3", featured: false, Icon: Code2 },
+  { id: "des",  title: "Design",          desc: "UI/UX e identidade visual.",                                                    tag: "DESIGN",    href: "#contato",   col: "3 / 4", row: "2 / 3", featured: false, Icon: Paintbrush },
+  { id: "host", title: "Hospedagem",      desc: "LiteSpeed, NVMe SSD, 99.9% uptime.",                                           tag: "INFRA",     href: "/hospedagem",col: "4 / 6", row: "2 / 3", featured: false, Icon: Server },
+  { id: "dom",  title: "Domínio",         desc: "Registro e gestão de domínios.",                                                tag: "INFRA",     href: "#contato",   col: "6 / 7", row: "2 / 3", featured: false, Icon: Globe },
+  { id: "ecom", title: "E-commerce",      desc: "Loja virtual completa e escalável.",                                            tag: "VENDAS",    href: "#contato",   col: "1 / 3", row: "3 / 4", featured: false, Icon: ShoppingCart },
+  { id: "land", title: "Landing Page",    desc: "Páginas de conversão de alto impacto.",                                        tag: "DEV",       href: "#contato",   col: "3 / 4", row: "3 / 4", featured: false, Icon: Rocket },
+  { id: "spam", title: "SpamExperts",     desc: "Proteção de e-mail corporativo.",                                               tag: "EMAIL",     href: "#contato",   col: "4 / 6", row: "3 / 4", featured: false, Icon: ShieldCheck },
+  { id: "ssl",  title: "SSL",             desc: "Certificados gratuitos e pagos.",                                               tag: "SEGURANÇA", href: "#contato",   col: "6 / 7", row: "3 / 4", featured: false, Icon: Lock },
+  { id: "back", title: "Cloud Backup",    desc: "Backups diários automatizados na nuvem.",                                      tag: "INFRA",     href: "#contato",   col: "1 / 4", row: "4 / 5", featured: false, Icon: Cloud },
+  { id: "mail", title: "E-mail Pro",      desc: "Contas profissionais com seu domínio.",                                        tag: "EMAIL",     href: "#contato",   col: "4 / 7", row: "4 / 5", featured: false, Icon: Mail },
 ];
 
-/* ─── Projects preview — grid slots (layout preserved) ─── */
 const PROJECT_SLOTS = [
   { col: "1 / 4", row: "1 / 2", bg: "linear-gradient(135deg, rgba(26,26,46,0.88), rgba(22,33,62,0.88))" },
   { col: "4 / 7", row: "1 / 2", bg: "linear-gradient(135deg, rgba(15,52,96,0.88), rgba(83,52,131,0.88))" },
@@ -101,46 +93,23 @@ export default async function Home() {
       {/* ══ HERO ══ */}
       <section
         id="inicio"
-        style={{
-          minHeight: "92vh",
-          position: "relative",
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "center",
-        }}
+        className="relative overflow-hidden flex items-center min-h-screen"
+        style={{ marginTop: -64 }}
       >
-        {/* Neural canvas background */}
         <NeuralCanvas />
 
-        {/* Gradient overlay */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background:
-              "radial-gradient(ellipse at 50% 50%, rgba(10, 22, 40, 0.4) 0%, rgba(10, 22, 40, 0.85) 70%)",
+            background: "radial-gradient(ellipse at 50% 50%, rgba(10, 22, 40, 0.4) 0%, rgba(10, 22, 40, 0.85) 70%)",
             zIndex: 1,
           }}
         />
 
-        {/* Content */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 2,
-            maxWidth: 1320,
-            margin: "0 auto",
-            padding: "0 40px",
-            width: "100%",
-            display: "grid",
-            gridTemplateColumns: "1.6fr 1fr",
-            gap: 60,
-            alignItems: "center",
-          }}
-        >
+        <div className="relative z-[2] w-full max-w-[1320px] mx-auto px-4 md:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-8 lg:gap-[60px] items-center" style={{ paddingTop: 100, paddingBottom: 48 }}>
           {/* Left */}
           <div className="hero-left">
-            {/* Eyebrow */}
             <div
               style={{
                 display: "inline-flex",
@@ -150,7 +119,7 @@ export default async function Home() {
                 border: "1px solid rgba(77, 157, 224, 0.25)",
                 borderRadius: 20,
                 padding: "6px 14px",
-                marginBottom: 28,
+                marginBottom: 24,
               }}
             >
               <span
@@ -176,15 +145,14 @@ export default async function Home() {
               </span>
             </div>
 
-            {/* H1 */}
             <h1
               style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: "clamp(44px, 5.6vw, 84px)",
+                fontSize: "clamp(36px, 5.6vw, 84px)",
                 fontWeight: 700,
                 lineHeight: 1.08,
                 letterSpacing: "-0.03em",
-                margin: "0 0 24px",
+                margin: "0 0 20px",
                 color: "#CDD6E4",
               }}
             >
@@ -192,22 +160,20 @@ export default async function Home() {
               <span style={{ color: "#4D9DE0" }}>resultados formidáveis</span>
             </h1>
 
-            {/* Sub */}
             <p
               style={{
                 fontFamily: "var(--font-sans)",
-                fontSize: 18,
+                fontSize: "clamp(15px, 1.8vw, 18px)",
                 color: "#8FA0BA",
                 lineHeight: 1.6,
                 maxWidth: 560,
-                margin: "0 0 40px",
+                margin: "0 0 36px",
               }}
             >
               Do branding ao código, desenvolvemos presença digital de alto impacto para empresas e profissionais que não aceitam o medíocre.
             </p>
 
-            {/* CTAs */}
-            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+            <div className="flex flex-wrap gap-3 md:gap-4">
               <a
                 href={WA_LINK}
                 target="_blank"
@@ -221,11 +187,10 @@ export default async function Home() {
                   fontFamily: "var(--font-mono)",
                   fontSize: 14,
                   fontWeight: 600,
-                  padding: "14px 28px",
+                  padding: "14px 24px",
                   borderRadius: 12,
                   textDecoration: "none",
                   boxShadow: "0 4px 20px rgba(18, 140, 126, 0.35)",
-                  transition: "transform 0.2s, box-shadow 0.2s",
                 }}
               >
                 <WhatsappIcon size={17} />
@@ -241,11 +206,10 @@ export default async function Home() {
                   color: "#CDD6E4",
                   fontFamily: "var(--font-mono)",
                   fontSize: 14,
-                  padding: "14px 24px",
+                  padding: "14px 20px",
                   borderRadius: 12,
                   textDecoration: "none",
                   background: "rgba(77, 157, 224, 0.06)",
-                  transition: "background 0.2s, border-color 0.2s",
                 }}
               >
                 ver portfólio <ArrowIcon />
@@ -253,12 +217,12 @@ export default async function Home() {
             </div>
           </div>
 
-          {/* Right — stat cards */}
-          <div className="hero-right" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {/* Right — stat cards (hidden on mobile, visible on lg+) */}
+          <div className="hero-right hidden lg:flex flex-col gap-4">
             {[
-              { value: "300+", label: "projetos entregues", suffix: "" },
-              { value: "150+", label: "clientes satisfeitos", suffix: "" },
-              { value: "20+", label: "anos de experiência", suffix: "" },
+              { value: "300+", label: "projetos entregues" },
+              { value: "150+", label: "clientes satisfeitos" },
+              { value: "20+",  label: "anos de experiência" },
             ].map((s) => (
               <div key={s.label} style={{ ...glass, padding: "24px 28px", position: "relative" }}>
                 <div
@@ -273,13 +237,7 @@ export default async function Home() {
                 >
                   {s.value}
                 </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: 14,
-                    color: "#8FA0BA",
-                  }}
-                >
+                <div style={{ fontFamily: "var(--font-sans)", fontSize: 14, color: "#8FA0BA" }}>
                   {s.label}
                 </div>
               </div>
@@ -289,9 +247,8 @@ export default async function Home() {
       </section>
 
       {/* ══ VALUES // 01 ══ */}
-      <section style={{ maxWidth: 1320, margin: "0 auto", padding: "80px 40px" }}>
+      <section className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-10 py-12 md:py-16 lg:py-20">
         <Reveal>
-        {/* Code label */}
         <div
           style={{
             fontFamily: "var(--font-mono)",
@@ -304,29 +261,18 @@ export default async function Home() {
           // 01: nossos valores
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 16,
-          }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { num: "01", Icon: Clock, title: "pontualidade", desc: "Entregas no prazo combinado. Sem surpresas, sem atrasos. Sua agenda é nossa prioridade." },
-            { num: "02", Icon: Zap, title: "agilidade", desc: "Processos enxutos e iterativos que reduzem o tempo do briefing ao lançamento." },
-            { num: "03", Icon: Headphones, title: "suporte", desc: "Atendimento humano e responsivo. Você fala com quem fez seu site." },
-            { num: "04", Icon: BookOpen, title: "treinamento", desc: "Capacitamos sua equipe para gerenciar o site com total autonomia e confiança." },
+            { num: "01", Icon: Clock,     title: "pontualidade", desc: "Entregas no prazo combinado. Sem surpresas, sem atrasos. Sua agenda é nossa prioridade." },
+            { num: "02", Icon: Zap,       title: "agilidade",    desc: "Processos enxutos e iterativos que reduzem o tempo do briefing ao lançamento." },
+            { num: "03", Icon: Headphones,title: "suporte",      desc: "Atendimento humano e responsivo. Você fala com quem fez seu site." },
+            { num: "04", Icon: BookOpen,  title: "treinamento",  desc: "Capacitamos sua equipe para gerenciar o site com total autonomia e confiança." },
           ].map((v) => (
             <div
               key={v.num}
-              style={{
-                ...glass,
-                padding: "28px 24px",
-                position: "relative",
-                overflow: "hidden",
-              }}
+              className="relative overflow-hidden"
+              style={{ ...glass, padding: "28px 24px" }}
             >
-              {/* Number badge */}
               <div
                 style={{
                   position: "absolute",
@@ -341,7 +287,6 @@ export default async function Home() {
               >
                 {v.num}
               </div>
-
               <div style={{ marginBottom: 16, color: "#4D9DE0" }}><v.Icon size={28} /></div>
               <h3
                 style={{
@@ -355,15 +300,7 @@ export default async function Home() {
               >
                 {v.title}
               </h3>
-              <p
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: 14,
-                  color: "#8FA0BA",
-                  lineHeight: 1.6,
-                  margin: 0,
-                }}
-              >
+              <p style={{ fontFamily: "var(--font-sans)", fontSize: 14, color: "#8FA0BA", lineHeight: 1.6, margin: 0 }}>
                 {v.desc}
               </p>
             </div>
@@ -373,7 +310,7 @@ export default async function Home() {
       </section>
 
       {/* ══ SOLUTIONS BENTO // 02 ══ */}
-      <section style={{ maxWidth: 1320, margin: "0 auto", padding: "0 40px 80px" }}>
+      <section className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-10 pb-12 md:pb-16 lg:pb-20">
         <Reveal>
         <div
           style={{
@@ -387,14 +324,7 @@ export default async function Home() {
           // 02: soluções
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(6, 1fr)",
-            gridAutoRows: 160,
-            gap: 14,
-          }}
-        >
+        <div className="sol-bento">
           {bentoCards.map((card) => (
             <a
               key={card.id}
@@ -415,7 +345,6 @@ export default async function Home() {
                   : {}),
               }}
             >
-              {/* Tag */}
               <div
                 style={{
                   fontFamily: "var(--font-mono)",
@@ -427,22 +356,10 @@ export default async function Home() {
               >
                 {card.tag}
               </div>
-
               <div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                    marginBottom: 6,
-                  }}
-                >
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
                   {card.Icon ? (
-                    <card.Icon
-                      size={card.featured ? 22 : 18}
-                      color="#4D9DE0"
-                      style={{ flexShrink: 0 }}
-                    />
+                    <card.Icon size={card.featured ? 22 : 18} color="#4D9DE0" style={{ flexShrink: 0 }} />
                   ) : (
                     <WordpressIcon size={card.featured ? 22 : 18} color="#4D9DE0" />
                   )}
@@ -477,7 +394,7 @@ export default async function Home() {
       </section>
 
       {/* ══ STATS // 03 ══ */}
-      <section style={{ maxWidth: 1320, margin: "0 auto", padding: "0 40px 80px" }}>
+      <section className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-10 pb-12 md:pb-16 lg:pb-20">
         <Reveal>
         <div
           style={{
@@ -491,31 +408,21 @@ export default async function Home() {
           // 03: métricas vivas
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 16,
-          }}
-        >
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { value: "300+", label: "projetos entregues" },
             { value: "150+", label: "clientes ativos" },
-            { value: "20+", label: "anos no mercado" },
+            { value: "20+",  label: "anos no mercado" },
             { value: "20K+", label: "xícaras de café" },
           ].map((s) => (
             <div
               key={s.label}
-              style={{
-                ...glass,
-                padding: "32px 28px",
-                textAlign: "center",
-              }}
+              style={{ ...glass, padding: "28px 20px", textAlign: "center" }}
             >
               <div
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: 52,
+                  fontSize: "clamp(36px, 4vw, 52px)",
                   fontWeight: 700,
                   color: "#4D9DE0",
                   lineHeight: 1,
@@ -524,14 +431,7 @@ export default async function Home() {
               >
                 {s.value}
               </div>
-              <div
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: 14,
-                  color: "#8FA0BA",
-                  textTransform: "lowercase",
-                }}
-              >
+              <div style={{ fontFamily: "var(--font-sans)", fontSize: 13, color: "#8FA0BA", textTransform: "lowercase" }}>
                 {s.label}
               </div>
             </div>
@@ -541,7 +441,7 @@ export default async function Home() {
       </section>
 
       {/* ══ TECHNOLOGIES // 04 ══ */}
-      <section style={{ maxWidth: 1320, margin: "0 auto", padding: "0 40px 80px" }}>
+      <section className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-10 pb-12 md:pb-16 lg:pb-20">
         <Reveal>
         <div
           style={{
@@ -559,7 +459,7 @@ export default async function Home() {
       </section>
 
       {/* ══ PROJECTS PREVIEW // 05 ══ */}
-      <section style={{ maxWidth: 1320, margin: "0 auto", padding: "0 40px 80px" }}>
+      <section className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-10 pb-12 md:pb-16 lg:pb-20">
         <Reveal>
         <div
           style={{
@@ -573,15 +473,8 @@ export default async function Home() {
           // 05: últimos projetos
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(6, 1fr)",
-            gridAutoRows: 200,
-            gap: 14,
-          }}
-        >
-          {projects.map((p) => (
+        <div className="proj-prev">
+          {projects.map((p, i) => (
             <div
               key={p.titulo}
               style={{
@@ -594,24 +487,16 @@ export default async function Home() {
                 cursor: "pointer",
               }}
             >
-              {/* Imagem de fundo */}
               <Image
                 src={`https://tiagobernardes.com.br${p.imagem}`}
                 alt={p.titulo}
                 fill
                 style={{ objectFit: "cover" }}
-                sizes="(max-width: 640px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                priority={i === 0}
               />
-              {/* Overlay colorido com transparência */}
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  background: p.bg,
-                  zIndex: 1,
-                }}
-              />
-              {/* Top: tags esquerda + botão externo direita */}
+              <div style={{ position: "absolute", inset: 0, background: p.bg, zIndex: 1 }} />
+
               <div
                 style={{
                   position: "absolute",
@@ -669,7 +554,6 @@ export default async function Home() {
                 )}
               </div>
 
-              {/* Bottom info */}
               <div
                 style={{
                   position: "absolute",
@@ -692,14 +576,7 @@ export default async function Home() {
                 >
                   {p.titulo}
                 </h3>
-                <p
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: 12,
-                    color: "#8FA0BA",
-                    margin: 0,
-                  }}
-                >
+                <p style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: "#8FA0BA", margin: 0 }}>
                   {p.desc}
                 </p>
               </div>
@@ -730,14 +607,10 @@ export default async function Home() {
         </Reveal>
       </section>
 
-      {/* ══ CONTACT // 05 ══ */}
+      {/* ══ CONTACT // 06 ══ */}
       <section
         id="contato"
-        style={{
-          maxWidth: 1320,
-          margin: "0 auto",
-          padding: "0 40px 100px",
-        }}
+        className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-10 pb-16 md:pb-20 lg:pb-[100px]"
       >
         <Reveal>
         <div
@@ -752,17 +625,9 @@ export default async function Home() {
           // 06: contato
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1.2fr",
-            gap: 48,
-            alignItems: "start",
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-start">
           {/* Left */}
           <div>
-            {/* Eyebrow */}
             <div
               style={{
                 display: "inline-flex",
@@ -801,7 +666,7 @@ export default async function Home() {
             <h2
               style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: "clamp(28px, 3.5vw, 48px)",
+                fontSize: "clamp(24px, 3.5vw, 48px)",
                 fontWeight: 700,
                 color: "#CDD6E4",
                 lineHeight: 1.15,
@@ -822,7 +687,6 @@ export default async function Home() {
               Conte-nos sobre seu projeto. Nossa equipe responde em até 2 horas em horário comercial.
             </p>
 
-            {/* WA card */}
             <a
               href={WA_LINK}
               target="_blank"
@@ -854,30 +718,15 @@ export default async function Home() {
                 <WhatsappIcon size={20} />
               </span>
               <div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 13,
-                    color: "#4D9DE0",
-                    marginBottom: 2,
-                  }}
-                >
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 13, color: "#4D9DE0", marginBottom: 2 }}>
                   WhatsApp
                 </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 15,
-                    color: "#CDD6E4",
-                    fontWeight: 500,
-                  }}
-                >
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 15, color: "#CDD6E4", fontWeight: 500 }}>
                   +55 31 998 407 238
                 </div>
               </div>
             </a>
 
-            {/* Email card */}
             <a
               href="mailto:falecom@lab82.dev"
               style={{
@@ -909,24 +758,10 @@ export default async function Home() {
                 </svg>
               </span>
               <div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 13,
-                    color: "#4D9DE0",
-                    marginBottom: 2,
-                  }}
-                >
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 13, color: "#4D9DE0", marginBottom: 2 }}>
                   E-mail
                 </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 15,
-                    color: "#CDD6E4",
-                    fontWeight: 500,
-                  }}
-                >
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 15, color: "#CDD6E4", fontWeight: 500 }}>
                   falecom@lab82.dev
                 </div>
               </div>

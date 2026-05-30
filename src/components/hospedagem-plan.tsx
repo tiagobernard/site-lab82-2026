@@ -114,18 +114,10 @@ export default function HospedagemPlan() {
           background: "linear-gradient(135deg, rgba(77, 157, 224, 0.08), rgba(17, 34, 64, 0.85))",
         }}
       >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Left: plan info */}
           <div
-            style={{
-              padding: "40px 36px",
-              borderRight: "1px solid rgba(77, 157, 224, 0.15)",
-            }}
+            className="p-6 lg:p-9 plan-left-col"
           >
             <div
               style={{
@@ -222,7 +214,7 @@ export default function HospedagemPlan() {
           </div>
 
           {/* Right: features */}
-          <div style={{ padding: "40px 36px" }}>
+          <div className="p-6 lg:p-9">
             <div
               style={{
                 fontFamily: "var(--font-mono)",

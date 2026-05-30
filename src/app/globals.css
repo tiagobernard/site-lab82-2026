@@ -154,10 +154,6 @@
 body {
   background: #0A1628;
   color: #CDD6E4;
-  background-image:
-    radial-gradient(circle at 12% -10%, rgba(77,157,224,0.15), transparent 35%),
-    radial-gradient(circle at 88% 110%, rgba(58,123,213,0.10), transparent 40%);
-  background-attachment: fixed;
   min-height: 100vh;
 }
 body::before {
@@ -169,7 +165,7 @@ body::before {
   z-index: 0;
   mix-blend-mode: overlay;
 }
-main, header, footer, section { position: relative; z-index: 1; }
+main, footer, section { position: relative; z-index: 1; }
 
 /* ─── Glass utility ─── */
 .glass-lab {
@@ -199,7 +195,7 @@ main, header, footer, section { position: relative; z-index: 1; }
 .portfolio-container {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 60px 40px 100px;
+  padding: 90px 40px 90px;
 }
 
 .portfolio-stats {
@@ -231,7 +227,7 @@ main, header, footer, section { position: relative; z-index: 1; }
 }
 
 @media (max-width: 640px) {
-  .portfolio-container { padding: 32px 16px 60px; }
+  .portfolio-container { padding: 60px 16px 60px; }
   .bento-portfolio { grid-template-columns: 1fr; grid-auto-rows: 200px; }
   .portfolio-stats { gap: 8px; }
 }
@@ -262,6 +258,71 @@ main, header, footer, section { position: relative; z-index: 1; }
 .reveal-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ─── Inner pages container spacing ─── */
+.inner-page-container {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+@media (max-width: 640px) {
+  .inner-page-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+/* ─── Hospedagem plan card divider ─── */
+.plan-left-col {
+  border-bottom: 1px solid rgba(77, 157, 224, 0.15);
+  border-right: none;
+}
+@media (min-width: 1024px) {
+  .plan-left-col {
+    border-bottom: none;
+    border-right: 1px solid rgba(77, 157, 224, 0.15);
+  }
+}
+
+/* ─── Responsive section grids (home) ─── */
+.sol-bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 160px;
+  gap: 14px;
+}
+/* Tablet: 2 colunas */
+@media (max-width: 1024px) {
+  .sol-bento {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: minmax(130px, auto) !important;
+  }
+  .sol-bento > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    grid-area: auto !important;
+  }
+}
+/* Mobile: 1 coluna */
+@media (max-width: 640px) {
+  .sol-bento {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: minmax(100px, auto) !important;
+  }
+}
+
+.proj-prev {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 200px;
+  gap: 14px;
+}
+@media (max-width: 1024px) {
+  .proj-prev { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+  .proj-prev > * { grid-column: auto !important; grid-row: auto !important; }
+}
+@media (max-width: 640px) {
+  .proj-prev { grid-template-columns: 1fr; grid-auto-rows: 240px; }
 }
 
 /* ─── Portfolio initial cards entrance ─── */

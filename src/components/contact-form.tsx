@@ -137,7 +137,7 @@ export default function ContactForm() {
   const required = <span style={{ color: "#4D9DE0", marginLeft: 3 }}>*</span>;
 
   return (
-    <div style={{ ...glass, padding: 36 }}>
+    <div className="p-5 md:p-9" style={{ ...glass }}>
       <form
         onSubmit={handleSubmit}
         style={{ display: "flex", flexDirection: "column", gap: 18 }}

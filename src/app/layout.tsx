@@ -69,7 +69,10 @@ export default function RootLayout({
         />
         <ReduxProvider>
           <Nav />
-          <div className="flex-1">{children}</div>
+          <div className="flex-1">
+            <div aria-hidden="true" style={{ height: 64, flexShrink: 0 }} />
+            {children}
+          </div>
           <Footer />
           <WaFloat />
         </ReduxProvider>

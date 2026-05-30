@@ -103,7 +103,8 @@ function BentoCard({
         fill
         style={{ objectFit: "cover" }}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        loading={globalIndex < 4 ? "eager" : "lazy"}
+        priority={globalIndex < 4}
+        loading={globalIndex < 4 ? undefined : "lazy"}
       />
 
       {/* Overlay colorido semitransparente */}
