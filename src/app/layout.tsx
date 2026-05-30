@@ -6,6 +6,9 @@ import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import WaFloat from "@/components/wa-float";
 import ReduxProvider from "@/providers/ReduxProvider";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
@@ -77,6 +80,7 @@ export default function RootLayout({
           <WaFloat />
         </ReduxProvider>
       </body>
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }
