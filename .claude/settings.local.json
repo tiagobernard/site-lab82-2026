@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/usr/bin/curl -s http://localhost:3000/)",
+      "Bash(/usr/bin/curl -s http://localhost:3000/manutencao)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "stitch"
+  ]
+}
