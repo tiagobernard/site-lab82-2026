@@ -2,7 +2,7 @@
 
 ## Status
 
-Design system reconstruído a partir das decisões registradas no histórico de redesign da Lab82.
+Design system aprovado para o projeto e alinhado à versão azul atualmente implementada.
 
 Este documento é a fonte de verdade visual do projeto. Alterações futuras devem atualizar este arquivo quando uma decisão de design for aprovada.
 
@@ -50,32 +50,34 @@ Não transformar todas as seções em uma grade uniforme de cards.
 
 ## Cores
 
+Decisão registrada em 28/10/2026: o proprietário confirmou que a versão azul atualmente implementada é a direção aprovada. A direção verde pertence ao histórico anterior e não é a paleta vigente.
+
 ```css
---color-bg: #0a0f0d;
---color-surface: rgba(13, 26, 20, 0.8);
+--color-bg: #0A1628;
+--color-surface: #112240;
+--color-surface-secondary: #162D50;
 
---color-accent-green: #00e676;
---color-accent-blue: #1565c0;
+--color-accent-blue: #4D9DE0;
+--color-accent-blue-secondary: #3A7BD5;
 
---color-pastel-mint: #b2dfdb;
---color-pastel-sky: #bbdefb;
+--color-detail-mint: #B7E4C7;
 
---color-text-primary: #f0faf5;
---color-text-muted: #78909c;
+--color-text-primary: #FFFFFF;
+--color-text-body: #CDD6E4;
+--color-text-muted: #8FA0BA;
 
---color-border: rgba(0, 230, 118, 0.15);
+--color-border: rgba(77, 157, 224, 0.18);
 ```
 
 ### Uso
 
-- verde elétrico: CTA, estados ativos, bordas e glow;
-- azul: informação secundária, tags e destaques;
-- mint/sky: detalhes e variações suaves;
-- near-black: base;
-- off-white: conteúdo principal;
-- slate: conteúdo secundário.
+- azul profundo: fundo e superfícies principais;
+- azul `#4D9DE0`: acento principal, links, estados ativos, bordas e glow;
+- menta `#B7E4C7`: detalhe secundário;
+- branco/cinza claro: conteúdo principal e corpo;
+- azul acinzentado: conteúdo secundário.
 
-Não distribuir as cores igualmente. O verde deve continuar sendo o acento visual dominante.
+O azul deve continuar sendo o acento dominante; usar menta apenas como detalhe secundário.
 
 ## Tipografia
 
@@ -120,23 +122,23 @@ Características:
 - backdrop blur;
 - logo `<lab82/>`;
 - logo em JetBrains Mono;
-- verde como destaque da marca.
+- azul como destaque da marca.
 
 Itens:
 
 ```text
-início | soluções | portfólio | contato
+Início | Portfólio | WordPress | Host Alta Performance | Manutenção WP
 ```
 
-CTA:
+CTA da navbar:
 
 ```text
-solicite um orçamento
+WhatsApp
 ```
 
 Estilo:
-- outline verde;
-- glow no hover.
+- botão WhatsApp preenchido em teal, conforme implementação;
+- underline azul no item ativo.
 
 Não incluir:
 - blog;
@@ -151,7 +153,7 @@ Hero de grande impacto.
 - viewport amplo;
 - fundo escuro;
 - grid/mesh animado discreto;
-- linhas verdes sutis;
+- linhas sutis em tons azuis;
 - headline grande;
 - CTA duplo;
 - pequenos elementos/cards flutuantes.
@@ -213,7 +215,7 @@ Bento assimétrico.
 Hover:
 - overlay;
 - nome do projeto;
-- glow verde;
+- glow azul;
 - transição curta.
 
 ### Contato
@@ -270,30 +272,25 @@ Categorias:
 
 ## Footer
 
-Três áreas:
+Layout centralizado:
 
-1. últimos projetos;
-2. contato;
-3. marca `<82/>`.
-
-Redes sociais:
-
-- Instagram;
-- Facebook;
-- X/Twitter.
+1. marca `<lab82/>`;
+2. selo “Neural Network Design”;
+3. links para as mesmas rotas principais da navegação;
+4. copyright.
 
 Copyright:
 
-> Lab82 Agência Digital Especializada em WordPress
+> © 2026 Lab82. Todos os direitos reservados.
 
-Não incluir coluna de blog.
+Manter o layout centralizado. Não acrescentar colunas, contatos ou redes sociais sem decisão aprovada.
 
 ## Interações
 
-- card → border/glow + scale muito sutil;
+- card → borda/glow azul + scale muito sutil;
 - CTA → brilho controlado;
-- links → underline animado;
-- input → border/glow no foco;
+- links → underline azul animado;
+- input → border/glow azul no foco;
 - portfólio → reveal do overlay;
 - counters → animação ao entrar na viewport.
 

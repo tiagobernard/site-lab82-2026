@@ -42,21 +42,24 @@ Não criar essa estrutura cegamente se o repositório já tiver uma organizaçã
 
 ## Rotas e navegação
 
-Navegação principal aprovada:
+Navegação principal implementada:
 
 - início
-- soluções
 - portfólio
-- contato
+- WordPress
+- Host Alta Performance
+- Manutenção WP
 
 Não adicionar:
 
 - blog;
 - cadastro de cliente.
 
-CTA principal da navegação:
+CTA da navegação:
 
-> solicite um orçamento
+> WhatsApp
+
+O CTA principal da Home permanece “solicite um orçamento”, com acesso ao WhatsApp.
 
 ## Design system
 
@@ -86,10 +89,10 @@ Preferência de marca:
 Padrões visuais aprovados:
 
 - cards glassmorphism;
-- bordas com glow verde em hover;
+- bordas com glow azul em hover;
 - CTAs com brilho sutil;
 - navegação com underline animado;
-- inputs com foco verde;
+- inputs com foco azul;
 - portfólio com overlay/reveal no hover;
 - counters animados quando isso não prejudicar performance.
 
@@ -143,13 +146,7 @@ Os projetos existentes devem ser preservados, salvo nova decisão de conteúdo.
 
 ### Footer
 
-Footer escuro em três áreas:
-
-1. projetos;
-2. contato;
-3. marca `<82/>`.
-
-Não criar coluna de blog.
+Footer escuro centralizado com marca `<lab82/>`, selo “Neural Network Design”, links para as rotas principais e copyright. Não adicionar conteúdo ou colunas não presentes no footer atual sem decisão aprovada.
 
 ## Performance
 
